@@ -1,0 +1,17 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+  <div class="login-container">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input formControlName="UserName" matInput>
+      <mat-error *ngIf="loginForm.get('UserName').invalid">Max Length is 6 characters.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input formControlName="Password" matInput type="password">
+      <mat-error *ngIf="loginForm.get('Password').invalid">Max Length is 6 characters.</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+  </div>
+</form>
